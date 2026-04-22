@@ -1,0 +1,150 @@
+/* KIDDIEGENIUS — main styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #fffde7 0%, #fce4ec 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+header {
+    background: #00897b;
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+#features {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+#features h2 {
+    color: #00897b;
+    margin-bottom: 1rem;
+}
+
+#features ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+#features li {
+    background: #e0f2f1;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-weight: 500;
+}
+
+#features li::before {
+    content: "✅ ";
+}
+
+#demo {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+#demo h2 {
+    color: #00897b;
+    margin-bottom: 1rem;
+}
+
+#demoButton {
+    background: #ff7043;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#demoButton:hover {
+    background: #e64a19;
+}
+
+#demoOutput {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #00897b;
+    min-height: 1.5em;
+}
+
+.stripe-link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    background: #635bff;
+    color: #fff;
+    border-radius: 8px;
+    padding: 0.6rem 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.stripe-link:hover {
+    background: #4b44cc;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Shape cards for the demo */
+.shape-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.shape-card {
+    background: #fff;
+    border: 2px solid #b2dfdb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.15s;
+    text-align: center;
+}
+
+.shape-card:hover {
+    transform: scale(1.05);
+    background: #e0f2f1;
+}
+
+.correct { background: #c8e6c9 !important; }
+.wrong   { background: #ffcdd2 !important; }
