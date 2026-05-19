@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KiddieGenius | Play</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand-wrap">
+            <h1>KiddieGenius</h1>
+            <p>Playful learning games for growing minds.</p>
+        </div>
+        <nav aria-label="Main navigation">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="learn.html">Learn</a>
+            <a class="nav-link active" href="play.html">Play</a>
+            <a class="nav-link" href="read.html">Read</a>
+            <a class="nav-link" href="parents.html">Parents</a>
+        </nav>
+    </header>
+
+    <main class="page">
+        <section class="card">
+            <h2>Super Fun Quiz</h2>
+            <p>Answer all 5 questions and earn your badge!</p>
+            <form id="quizForm" class="quiz-form">
+                <fieldset>
+                    <legend>1) Which letter makes the /b/ sound?</legend>
+                    <label><input type="radio" name="q1" value="a"> A</label>
+                    <label><input type="radio" name="q1" value="b"> B</label>
+                    <label><input type="radio" name="q1" value="c"> C</label>
+                </fieldset>
+                <fieldset>
+                    <legend>2) What is 7 + 2?</legend>
+                    <label><input type="radio" name="q2" value="8"> 8</label>
+                    <label><input type="radio" name="q2" value="9"> 9</label>
+                    <label><input type="radio" name="q2" value="10"> 10</label>
+                </fieldset>
+                <fieldset>
+                    <legend>3) Which shape has 3 sides?</legend>
+                    <label><input type="radio" name="q3" value="square"> Square</label>
+                    <label><input type="radio" name="q3" value="triangle"> Triangle</label>
+                    <label><input type="radio" name="q3" value="circle"> Circle</label>
+                </fieldset>
+                <fieldset>
+                    <legend>4) What do plants need to grow?</legend>
+                    <label><input type="radio" name="q4" value="sunlight"> Sunlight and water</label>
+                    <label><input type="radio" name="q4" value="candy"> Candy</label>
+                    <label><input type="radio" name="q4" value="video"> Video games</label>
+                </fieldset>
+                <fieldset>
+                    <legend>5) Which is a kind way to help a friend?</legend>
+                    <label><input type="radio" name="q5" value="share"> Share and listen</label>
+                    <label><input type="radio" name="q5" value="ignore"> Ignore them</label>
+                    <label><input type="radio" name="q5" value="laugh"> Laugh at mistakes</label>
+                </fieldset>
+                <button class="btn btn-primary" type="submit">Check My Score</button>
+            </form>
+            <p id="quizResult" aria-live="polite">Ready to play!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 KiddieGenius. Learn happy, grow bright.</p>
+    </footer>
+    <script src="scripts/app.js"></script>
+</body>
+</html>

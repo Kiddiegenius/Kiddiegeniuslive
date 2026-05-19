@@ -3,32 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KIDDIEGENIUS SaaS Demo</title>
+    <title>KiddieGenius | Learn, Play, Grow</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to KIDDIEGENIUS</h1>
-        <p>Your ultimate solution for children's education and entertainment.</p>
+    <header class="topbar">
+        <div class="brand-wrap">
+            <h1>KiddieGenius</h1>
+            <p>Super fun learning for pre-K through 3rd grade.</p>
+        </div>
+        <nav aria-label="Main navigation">
+            <a class="nav-link active" href="index.html">Home</a>
+            <a class="nav-link" href="learn.html">Learn</a>
+            <a class="nav-link" href="play.html">Play</a>
+            <a class="nav-link" href="read.html">Read</a>
+            <a class="nav-link" href="parents.html">Parents</a>
+        </nav>
     </header>
-    <main>
-        <a href=pmc_1R4XTnGD05qQQgARMZBvhU20 target="_blank">Pay with Stripe</a>
-        <section id="features">
-            <h2>Features</h2>
-            <ul>
-                <li>Interactive Learning Modules</li>
-                <li>Fun Games and Quizzes</li>
-                <li>Progress Tracking</li>
-                <li>Parental Controls</li>
-            </ul>
+
+    <main class="page">
+        <section class="hero card">
+            <p class="pill">Ages 4-9</p>
+            <h2>Big smiles. Big ideas. Big confidence.</h2>
+            <p>
+                Explore colorful learning adventures built to help early learners practice
+                reading, math, science thinking, creativity, and kindness.
+            </p>
+            <div class="cta-row">
+                <a class="btn btn-primary" href="learn.html">Start Learning</a>
+                <a class="btn btn-secondary" href="play.html">Play Games</a>
+            </div>
         </section>
-        <section id="demo">
-            <h2>Try it Out!</h2>
-            <button id="demoButton">Start Demo</button>
+
+        <section class="grid-3">
+            <article class="card">
+                <h3>Personalized Paths</h3>
+                <p>Age-leveled activities for pre-K, K-1, and 2nd-3rd grade skills.</p>
+            </article>
+            <article class="card">
+                <h3>Interactive Fun</h3>
+                <p>Quizzes, mini-games, and rewards make learning exciting every day.</p>
+            </article>
+            <article class="card">
+                <h3>Safe & Supportive</h3>
+                <p>Kid-safe content with parent guidance tools and progress highlights.</p>
+            </article>
+        </section>
+
+        <section class="card spotlight">
+            <h3>Today’s Learning Cheer</h3>
+            <p id="dailyCheer">You are ready to shine!</p>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2023 KIDDIEGENIUS. All rights reserved.</p>
+        <p>&copy; 2026 KiddieGenius. Learn happy, grow bright.</p>
     </footer>
     <script src="scripts/app.js"></script>
 </body>

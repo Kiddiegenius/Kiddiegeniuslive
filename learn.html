@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KiddieGenius | Learn</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand-wrap">
+            <h1>KiddieGenius</h1>
+            <p>Skill-building adventures by age and level.</p>
+        </div>
+        <nav aria-label="Main navigation">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link active" href="learn.html">Learn</a>
+            <a class="nav-link" href="play.html">Play</a>
+            <a class="nav-link" href="read.html">Read</a>
+            <a class="nav-link" href="parents.html">Parents</a>
+        </nav>
+    </header>
+
+    <main class="page">
+        <section class="card">
+            <h2>Learning Tracks</h2>
+            <p>Choose a path designed for each child’s stage.</p>
+        </section>
+
+        <section class="grid-3">
+            <article class="card">
+                <h3>Pre-K</h3>
+                <ul>
+                    <li>Letter sounds and rhymes</li>
+                    <li>Counting to 20 with visuals</li>
+                    <li>Shapes, colors, and patterns</li>
+                </ul>
+            </article>
+            <article class="card">
+                <h3>Kindergarten–1st</h3>
+                <ul>
+                    <li>CVC words and sentence starters</li>
+                    <li>Addition and subtraction to 20</li>
+                    <li>Nature and curiosity science prompts</li>
+                </ul>
+            </article>
+            <article class="card">
+                <h3>2nd–3rd Grade</h3>
+                <ul>
+                    <li>Reading comprehension quests</li>
+                    <li>Math fluency and problem-solving</li>
+                    <li>Simple coding and logic challenges</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="card">
+            <h3>Mini Goal Tracker</h3>
+            <p>Tap a goal when complete to build momentum.</p>
+            <div class="checklist">
+                <label><input type="checkbox" class="goal-check"> I read for 10 minutes.</label>
+                <label><input type="checkbox" class="goal-check"> I solved 5 math problems.</label>
+                <label><input type="checkbox" class="goal-check"> I learned a new word.</label>
+            </div>
+            <p id="goalStatus" aria-live="polite">0 of 3 goals completed.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 KiddieGenius. Learn happy, grow bright.</p>
+    </footer>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
