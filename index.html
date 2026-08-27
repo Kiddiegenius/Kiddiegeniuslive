@@ -1,35 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KIDDIEGENIUS SaaS Demo</title>
-    <link rel="stylesheet" href="styles/main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kiddie Genius World: learn through adventures, games, stories, and rewards." />
+  <title>Kiddie Genius World | Adventure Learning</title>
+  <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
-    <header>
-        <h1>Welcome to KIDDIEGENIUS</h1>
-        <p>Your ultimate solution for children's education and entertainment.</p>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Kiddie Genius World home">
+        <span class="brand-mark">KG</span>
+        <span><strong>Kiddie Genius</strong><small>WORLD</small></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#adventure">Adventure</a>
+        <a href="#curriculum">Curriculum</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+      <button class="parent-btn" data-scroll="#pricing">Parent Zone</button>
     </header>
-    <main>
-        <a href=pmc_1R4XTnGD05qQQgARMZBvhU20 target="_blank">Pay with Stripe</a>
-        <section id="features">
-            <h2>Features</h2>
-            <ul>
-                <li>Interactive Learning Modules</li>
-                <li>Fun Games and Quizzes</li>
-                <li>Progress Tracking</li>
-                <li>Parental Controls</li>
-            </ul>
-        </section>
-        <section id="demo">
-            <h2>Try it Out!</h2>
-            <button id="demoButton">Start Demo</button>
-        </section>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">🚀 PLAY • LEARN • LEVEL UP</div>
+          <h1>Big adventures.<br /><span>Genius-sized learning.</span></h1>
+          <p>Meet Gray the Cheetah, Connor, and Maddy. Complete bite-sized missions in reading, math, science, and creativity while building your own adventure streak.</p>
+          <div class="hero-actions">
+            <button class="primary-btn" id="startBtn">Start Free Adventure <span>→</span></button>
+            <button class="secondary-btn" data-scroll="#curriculum">See the curriculum</button>
+          </div>
+          <div class="trust-row"><span>✓ Free trial</span><span>✓ No ads in learning mode</span><span>✓ Parent progress view</span></div>
+        </div>
+        <div class="hero-stage" aria-label="Adventure preview">
+          <div class="sun"></div><div class="cloud cloud-a"></div><div class="cloud cloud-b"></div>
+          <div class="character gray">🐆<b>GRAY</b></div>
+          <div class="character maddy">🐿️<b>MADDY</b></div>
+          <div class="character connor">🐆<b>CONNOR</b></div>
+          <div class="mission-card">
+            <div><span class="mini-icon">⭐</span><strong>Today's Mission</strong></div>
+            <p>Rescue the Rocket Seeds</p>
+            <div class="progress"><span style="width: 35%"></span></div>
+            <small>Mission 1 of 5 • 8 min</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-strip">
+        <div><strong>5–10 min</strong><span>kid-sized lessons</span></div>
+        <div><strong>4 core</strong><span>learning worlds</span></div>
+        <div><strong>1 goal</strong><span>make learning fun</span></div>
+        <div><strong>$5.99/mo</strong><span>founding family plan</span></div>
+      </section>
+
+      <section id="adventure" class="section adventure-section">
+        <div class="section-heading"><div><span class="eyebrow">THE DEMO QUEST</span><h2>Enter the Genius Jungle 🌴</h2></div><span class="badge">FREE TRIAL</span></div>
+        <div class="quest-grid">
+          <article class="quest-card active" data-lesson="0"><span class="quest-num">01</span><div class="quest-art">🔢</div><h3>Math Mountain</h3><p>Count, compare, add, and climb.</p><button>Play mission</button></article>
+          <article class="quest-card" data-lesson="1"><span class="quest-num">02</span><div class="quest-art">📚</div><h3>Story Safari</h3><p>Letters, sounds, words, and stories.</p><button>Unlock preview</button></article>
+          <article class="quest-card" data-lesson="2"><span class="quest-num">03</span><div class="quest-art">🔬</div><h3>Wonder Lab</h3><p>Explore science through tiny experiments.</p><button>Unlock preview</button></article>
+          <article class="quest-card" data-lesson="3"><span class="quest-num">04</span><div class="quest-art">🎨</div><h3>Creative Camp</h3><p>Draw, imagine, build, and explain.</p><button>Unlock preview</button></article>
+        </div>
+      </section>
+
+      <section id="lesson" class="lesson-panel" aria-live="polite">
+        <div class="lesson-character">🐆</div>
+        <div class="lesson-content">
+          <span class="eyebrow">GRAY'S CHALLENGE</span>
+          <h2 id="lessonTitle">Rocket Math: Fuel the Ship!</h2>
+          <p id="lessonPrompt">Gray has <strong>3</strong> rocket seeds. Connor gives him <strong>2</strong> more. How many seeds does Gray have now?</p>
+          <div class="answers" id="answers"></div>
+          <div class="lesson-footer"><span id="lessonProgress">Mission 1 • Step 1/3</span><span id="streak">🔥 0 day streak</span></div>
+        </div>
+      </section>
+
+      <section id="curriculum" class="section">
+        <div class="section-heading"><div><span class="eyebrow">GUIDED CURRICULUM</span><h2>Learning with a storyline</h2></div></div>
+        <div class="curriculum-grid">
+          <div class="curriculum-card"><span>🌱</span><h3>Level 1 • Explorer</h3><p>Foundational letters, numbers, shapes, colors, and confidence-building challenges.</p></div>
+          <div class="curriculum-card"><span>🧭</span><h3>Level 2 • Pathfinder</h3><p>Early reading, addition, patterns, observation, and problem-solving missions.</p></div>
+          <div class="curriculum-card"><span>🏆</span><h3>Level 3 • Genius</h3><p>More complex stories, math reasoning, science discovery, and creative projects.</p></div>
+        </div>
+      </section>
+
+      <section class="parent-preview">
+        <div><span class="eyebrow">FOR PARENTS</span><h2>See progress without turning learning into homework.</h2><p>Simple weekly snapshots show time played, missions completed, strengths, and suggested next adventures.</p></div>
+        <div class="dashboard-card"><div class="dash-head"><strong>Weekly Adventure</strong><span>92% complete</span></div><div class="big-progress"><span style="width:92%"></span></div><div class="dash-grid"><div><b>14</b><small>missions</small></div><div><b>4</b><small>skills</small></div><div><b>87%</b><small>mastery</small></div></div></div>
+      </section>
+
+      <section id="pricing" class="pricing section">
+        <div class="section-heading"><div><span class="eyebrow">FOUNDING FAMILY LAUNCH</span><h2>Premium learning, family-friendly pricing.</h2></div></div>
+        <div class="price-grid">
+          <article class="price-card"><span>FREE</span><h3>Starter Quest</h3><div class="price">$0</div><p>Try the adventure before you commit.</p><ul><li>✓ 1 guided mission</li><li>✓ Demo curriculum</li><li>✓ Character introductions</li></ul><button class="secondary-btn" data-scroll="#adventure">Play free</button></article>
+          <article class="price-card featured"><div class="popular">FOUNDING FAMILY</div><span>PREMIUM</span><h3>Genius Pass</h3><div class="price">$5.99<small>/month</small></div><p>Low-cost access while the world grows.</p><ul><li>✓ Full guided curriculum</li><li>✓ New missions weekly</li><li>✓ Parent progress dashboard</li><li>✓ Printable activities</li></ul><button class="primary-btn" id="checkoutBtn">Unlock Genius Pass</button><small class="price-note">Checkout link can be connected in scripts/app.js</small></article>
+        </div>
+      </section>
     </main>
-    <footer>
-        <p>&copy; 2023 KIDDIEGENIUS. All rights reserved.</p>
-    </footer>
-    <script src="scripts/app.js"></script>
+
+    <footer><strong>Kiddie Genius World</strong><span>Adventure makes learning stick.</span><span>© 2026 Kiddie Genius</span></footer>
+  </div>
+  <script src="scripts/app.js"></script>
 </body>
 </html>
