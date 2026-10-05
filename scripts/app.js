@@ -1,32 +1,20 @@
-const missions = [
-  {title:'Rocket Math: Fuel the Ship!', prompt:'Gray has <strong>3</strong> rocket seeds. Connor gives him <strong>2</strong> more. How many seeds does Gray have now?', answers:['4','5','6'], correct:'5'},
-  {title:'Story Safari: Sound Hunt!', prompt:'Maddy found a <strong>moon</strong>. Which letter does the word <strong>moon</strong> start with?', answers:['M','S','T'], correct:'M'},
-  {title:'Wonder Lab: Shadow Science!', prompt:'A shadow needs light and an object. What happens when you move the object closer to the light?', answers:['It can grow longer','It disappears forever','It turns into water'], correct:'It can grow longer'},
-  {title:'Creative Camp: Shape Builder!', prompt:'Build a rocket using shapes. Which shape has <strong>3 sides</strong>?', answers:['Circle','Triangle','Square'], correct:'Triangle'}
+const missions=[
+{skill:"MATH • COUNTING",title:"Rocket Math: Fuel the Ship!",prompt:"Gray has <strong>3</strong> Star Seeds. Connor gives him <strong>2</strong> more. How many does Gray have now?",answers:["4","5","6"],correct:"5",reward:"You fueled the rocket with perfect counting power! 🚀"},
+{skill:"READING • PHONICS",title:"Story Safari: Sound Hunt!",prompt:"Maddy found a <strong>moon</strong>. What letter does <strong>moon</strong> start with?",answers:["M","S","T"],correct:"M",reward:"You found the beginning sound! M is for moon! 🌙"},
+{skill:"SCIENCE • DISCOVERY",title:"Wonder Woods: Shadow Science!",prompt:"A shadow needs light and an object. What can happen when you move the object closer to a light?",answers:["It can grow longer","It disappears forever","It becomes water"],correct:"It can grow longer",reward:"Amazing observation! You discovered how light and shadows work. 🔬"},
+{skill:"CREATIVITY • SHAPES",title:"Creative Camp: Shape Builder!",prompt:"Gray wants to build a rocket. Which shape has <strong>3 sides</strong>?",answers:["Circle","Triangle","Square"],correct:"Triangle",reward:"You built the perfect rocket shape! Your imagination is powerful. 🎨"}
 ];
-let current=0, streak=0;
+let current=0,stars=0,completed=new Set(),locked=false;
 const $=s=>document.querySelector(s);
-function scrollToId(id){const el=document.querySelector(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
-document.querySelectorAll('[data-scroll]').forEach(b=>b.addEventListener('click',()=>scrollToId(b.dataset.scroll)));
-function renderMission(){
-  const m=missions[current];
-  $('#lessonTitle').textContent=m.title;
-  $('#lessonPrompt').innerHTML=m.prompt;
-  $('#lessonProgress').textContent=`Mission ${current+1} • Step 1/3`;
-  $('#answers').innerHTML='';
-  m.answers.forEach(a=>{const b=document.createElement('button');b.className='answer';b.textContent=a;b.addEventListener('click',()=>answer(b,a));$('#answers').appendChild(b)});
-  scrollToId('#lesson');
-}
-function answer(button,value){
-  const m=missions[current];
-  document.querySelectorAll('.answer').forEach(b=>b.disabled=true);
-  if(value===m.correct){button.classList.add('correct');streak++;$('#streak').textContent=`🔥 ${streak} mission${streak===1?'':'s'} streak`;}else{button.classList.add('wrong');$('#streak').textContent='💡 Try again next mission';}
-  $('#lessonProgress').textContent=`Mission ${current+1} • Complete ✓`;
-  setTimeout(()=>{current=(current+1)%missions.length;renderMission()},900);
-}
-$('#startBtn').addEventListener('click',renderMission);
-document.querySelectorAll('.quest-card').forEach(card=>card.addEventListener('click',()=>{current=Number(card.dataset.lesson)||0;renderMission()}));
-$('#checkoutBtn').addEventListener('click',()=>{
-  alert('Genius Pass is ready for Stripe. Add your live Stripe Checkout URL here when payments are connected.');
-});
-renderMission();
+const all=s=>document.querySelectorAll(s);
+function scrollToId(id){const el=$(id);if(el)el.scrollIntoView({behavior:"smooth",block:"center"})}
+all("[data-scroll]").forEach(b=>b.addEventListener("click",()=>scrollToId(b.dataset.scroll)));
+function setProgress(){const n=completed.size;$("#questFill").style.width=(n/missions.length*100)+"%";$("#questCount").textContent=n+" / "+missions.length;$("#stars").textContent=stars;all(".map-node").forEach((node,i)=>{node.classList.toggle("active",i===current);node.querySelector("i").textContent=completed.has(i)?"✓":String(i+1)})}
+function loadMission(index=current){current=index;locked=false;const m=missions[current];$("#missionLabel").textContent="Mission "+(current+1)+" of "+missions.length;$("#skillPill").textContent=m.skill;$("#missionTitle").textContent=m.title;$("#missionPrompt").innerHTML=m.prompt;$("#feedback").textContent="";$("#stepText").textContent="Challenge 1 of 1";$("#hint").innerHTML="💡 <b>Genius Hint:</b> Take your time. You can do this!";$("#answers").innerHTML="";m.answers.forEach(a=>{const b=document.createElement("button");b.className="answer";b.textContent=a;b.addEventListener("click",()=>choose(b,a));$("#answers").appendChild(b)});scrollToId("#mission")}
+function choose(button,value){if(locked)return;locked=true;const m=missions[current];all(".answer").forEach(b=>b.disabled=true);if(value===m.correct){button.classList.add("correct");completed.add(current);stars++;$("#feedback").textContent="🎉 Correct!";$("#stepText").textContent="Challenge complete ✓";setProgress();setTimeout(()=>showReward(m),450)}else{button.classList.add("wrong");locked=false;$("#feedback").textContent="💡 Almost! Try another answer.";$("#hint").innerHTML="💡 <b>Hint:</b> Look closely at the question, then try again!";all(".answer").forEach(b=>b.disabled=false)}}
+function showReward(m){$("#rewardText").textContent=m.reward;$("#rewardStars").textContent="+1";$("#rewardProgress").textContent=Math.round(completed.size/missions.length*100)+"%";$("#reward").classList.remove("hidden");$("#nextBtn").textContent=completed.size===missions.length?"🎉 Finish the Free Adventure":"Continue Adventure →";scrollToId("#reward")}
+$("#nextBtn").addEventListener("click",()=>{if(completed.size===missions.length){$("#nextBtn").textContent="🚀 Explore Premium";$("#rewardText").textContent="You completed the Free Adventure! The next worlds are waiting.";$("#nextBtn").onclick=()=>scrollToId(".pricing");return}$("#reward").classList.add("hidden");let next=(current+1)%missions.length;while(completed.has(next))next=(next+1)%missions.length;loadMission(next)});
+$("#startBtn").addEventListener("click",()=>{if(completed.size===missions.length){completed.clear();stars=0;setProgress()}$("#reward").classList.add("hidden");loadMission(0)});
+all(".map-node").forEach(node=>node.addEventListener("click",()=>loadMission(Number(node.dataset.mission))));
+$("#checkoutBtn").addEventListener("click",()=>alert("Genius Pass is ready for your live Stripe Checkout link. Connect the production checkout URL in scripts/app.js before launch."));
+setProgress();loadMission(0);
