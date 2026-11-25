@@ -1,32 +1,37 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#6c4cff"><meta name="description" content="Kiddie Genius World — a playful guided learning adventure for curious kids.">
-<title>Kiddie Genius World | Free Adventure</title><link rel="stylesheet" href="styles/main.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#6c4cff">
+<meta name="description" content="Kiddie Genius World — a playful guided learning adventure for curious kids.">
+<meta name="color-scheme" content="light">
+<title>Kiddie Genius World | Free Adventure</title>
+<link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-<div class="sky-glow"></div>
+<a class="skip-link" href="#main-content">Skip to adventure</a>
+<div class="sky-glow" aria-hidden="true"></div>
 <div class="app-shell" id="app">
 <header class="topbar">
-<a class="brand" href="#top"><span class="brand-mark">KG</span><span><strong>Kiddie Genius</strong><small>WORLD</small></span></a>
-<nav><a href="#world">World</a><a href="#skills">Skills</a><a href="#parents">Parents</a></nav>
-<button class="parent-btn" data-scroll="#parents">Parent Zone 🔒</button>
+<a class="brand" href="#top" aria-label="Kiddie Genius World home"><span class="brand-mark" aria-hidden="true">KG</span><span><strong>Kiddie Genius</strong><small>WORLD</small></span></a>
+<nav aria-label="Main navigation"><a href="#world">World</a><a href="#skills">Skills</a><a href="#parents">Parents</a></nav>
+<button class="parent-btn" type="button" data-scroll="#parents">Parent Zone 🔒</button>
 </header>
 
-<main id="top">
-<section class="hero">
+<main id="main-content">
+<section class="hero" id="top">
 <div class="hero-copy">
 <div class="eyebrow">✨ A FREE LEARNING ADVENTURE</div>
 <h1>Where <span>curiosity</span><br>becomes an adventure.</h1>
 <p>Help Gray, Connor, and Maddy save the Star Seed. Play tiny missions, discover new worlds, and learn without it ever feeling like homework.</p>
-<div class="hero-actions"><button class="primary-btn big" id="startBtn">🚀 Start the Free Adventure</button><button class="secondary-btn" data-scroll="#world">Explore the world</button></div>
+<div class="hero-actions"><button class="primary-btn big" id="startBtn" type="button">🚀 Start the Free Adventure</button><button class="secondary-btn" type="button" data-scroll="#world">Explore the world</button></div>
 <div class="trust-row"><span>🛡️ Kid-friendly</span><span>💛 Parent-approved design</span><span>🎮 Learn by playing</span></div>
 </div>
-<div class="hero-scene">
-<div class="spark s1">✦</div><div class="spark s2">✦</div><div class="moon">☀️</div>
-<div class="hill hill-back"></div><div class="hill hill-front"></div>
-<div class="tree t1">🌳</div><div class="tree t2">🌴</div>
+<div class="hero-scene" aria-label="Gray and friends explore a sunny jungle">
+<div class="spark s1" aria-hidden="true">✦</div><div class="spark s2" aria-hidden="true">✦</div><div class="moon" aria-hidden="true">☀️</div>
+<div class="hill hill-back" aria-hidden="true"></div><div class="hill hill-front" aria-hidden="true"></div>
+<div class="tree t1" aria-hidden="true">🌳</div><div class="tree t2" aria-hidden="true">🌴</div>
 <div class="hero-character gray">🐆<label>GRAY</label></div>
 <div class="hero-character maddy">🐿️<label>MADDY</label></div>
 <div class="hero-character connor">🐆<label>CONNOR</label></div>
@@ -34,57 +39,57 @@
 </div>
 </section>
 
-<section class="adventure-bar"><div><b>⭐ STAR SEED QUEST</b><span>Free Adventure • Chapter 1</span></div><div class="quest-meter"><span id="questFill"></span></div><strong id="questCount">0 / 4</strong></section>
+<section class="adventure-bar" aria-label="Adventure progress"><div><b>⭐ STAR SEED QUEST</b><span>Free Adventure • Chapter 1</span></div><div class="quest-meter" role="progressbar" aria-label="Missions completed" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0" id="questProgress"><span id="questFill"></span></div><strong id="questCount" aria-live="polite">0 / 4</strong></section>
 
 <section id="world" class="world section">
 <div class="section-heading"><div><span class="eyebrow">YOUR ADVENTURE MAP</span><h2>Explore the Genius Jungle</h2><p>Choose a glowing path. Every stop teaches a real skill.</p></div><div class="collectible">⭐ <b id="stars">0</b> Star Seeds</div></div>
 <div class="map">
-<div class="path path1"></div><div class="path path2"></div><div class="path path3"></div>
-<button class="map-node node1 active" data-mission="0"><i>1</i><span>🔢</span><b>Math Mountain</b><small>Counting & addition</small></button>
-<button class="map-node node2" data-mission="1"><i>2</i><span>📚</span><b>Story Safari</b><small>Letters & sounds</small></button>
-<button class="map-node node3" data-mission="2"><i>3</i><span>🔬</span><b>Wonder Woods</b><small>Science & discovery</small></button>
-<button class="map-node node4" data-mission="3"><i>4</i><span>🎨</span><b>Creative Camp</b><small>Shapes & imagination</small></button>
-<div class="map-bush b1">🌿</div><div class="map-bush b2">🌱</div><div class="map-bush b3">🌼</div>
+<div class="path path1" aria-hidden="true"></div><div class="path path2" aria-hidden="true"></div><div class="path path3" aria-hidden="true"></div>
+<button class="map-node node1 active" type="button" data-mission="0"><i aria-hidden="true">1</i><span aria-hidden="true">🔢</span><b>Math Mountain</b><small>Counting & addition</small></button>
+<button class="map-node node2" type="button" data-mission="1"><i aria-hidden="true">2</i><span aria-hidden="true">📚</span><b>Story Safari</b><small>Letters & sounds</small></button>
+<button class="map-node node3" type="button" data-mission="2"><i aria-hidden="true">3</i><span aria-hidden="true">🔬</span><b>Wonder Woods</b><small>Science & discovery</small></button>
+<button class="map-node node4" type="button" data-mission="3"><i aria-hidden="true">4</i><span aria-hidden="true">🎨</span><b>Creative Camp</b><small>Shapes & imagination</small></button>
+<div class="map-bush b1" aria-hidden="true">🌿</div><div class="map-bush b2" aria-hidden="true">🌱</div><div class="map-bush b3" aria-hidden="true">🌼</div>
 </div>
 </section>
 
-<section id="mission" class="mission-wrap" aria-live="polite">
+<section id="mission" class="mission-wrap" aria-label="Live learning mission">
 <div class="mission-top"><span class="eyebrow">⭐ LIVE MISSION</span><span id="missionLabel">Mission 1 of 4</span></div>
 <div class="mission-card">
-<div class="mission-visual"><div class="mission-orb">⭐</div><div class="buddy">🐆</div><div class="thought">I know you can do it!</div></div>
+<div class="mission-visual" aria-hidden="true"><div class="mission-orb">⭐</div><div class="buddy">🐆</div><div class="thought">I know you can do it!</div></div>
 <div class="mission-body">
 <div class="skill-pill" id="skillPill">MATH • COUNTING</div>
 <h2 id="missionTitle">Rocket Math: Fuel the Ship!</h2>
 <p id="missionPrompt"></p>
-<div class="answers" id="answers"></div>
+<div class="answers" id="answers" aria-label="Answer choices"></div>
 <div class="hint" id="hint">💡 <b>Genius Hint:</b> Take your time. You can do this!</div>
 </div>
 </div>
-<div class="mission-footer"><span id="stepText">Challenge 1 of 1</span><span id="feedback"></span></div>
+<div class="mission-footer"><span id="stepText">Challenge 1 of 1</span><span id="feedback" role="status" aria-live="polite"></span></div>
 </section>
 
-<section id="reward" class="reward-section hidden">
-<div class="reward-card"><div class="confetti">✦ ✦ ✦</div><div class="trophy">🏆</div><span class="eyebrow">MISSION COMPLETE!</span><h2>Star Seed rescued! ⭐</h2><p id="rewardText">Gray is proud of you. Your adventure is growing!</p><div class="reward-stats"><div><b id="rewardStars">+1</b><small>Star Seed</small></div><div><b>🌟</b><small>Genius Badge</small></div><div><b id="rewardProgress">25%</b><small>Quest complete</small></div></div><button class="primary-btn" id="nextBtn">Continue Adventure →</button></div>
+<section id="reward" class="reward-section hidden" aria-live="polite">
+<div class="reward-card"><div class="confetti" aria-hidden="true">✦ ✦ ✦</div><div class="trophy" aria-hidden="true">🏆</div><span class="eyebrow">MISSION COMPLETE!</span><h2>Star Seed rescued! ⭐</h2><p id="rewardText">Gray is proud of you. Your adventure is growing!</p><div class="reward-stats"><div><b id="rewardStars">+1</b><small>Star Seed</small></div><div><b>🌟</b><small>Genius Badge</small></div><div><b id="rewardProgress">25%</b><small>Quest complete</small></div></div><button class="primary-btn" id="nextBtn" type="button">Continue Adventure →</button></div>
 </section>
 
 <section id="skills" class="section skills">
 <div class="section-heading"><div><span class="eyebrow">GUIDED CURRICULUM</span><h2>Learning is built into the adventure.</h2><p>Short, age-appropriate challenges build confidence one win at a time.</p></div></div>
 <div class="skill-grid">
-<article><span>🔢</span><div><h3>Math Explorer</h3><p>Numbers, counting, patterns, addition and early reasoning.</p></div></article>
-<article><span>📖</span><div><h3>Story Builder</h3><p>Letters, phonics, vocabulary, comprehension and storytelling.</p></div></article>
-<article><span>🧪</span><div><h3>Wonder Maker</h3><p>Observation, nature, science concepts and curiosity.</p></div></article>
-<article><span>🎨</span><div><h3>Creative Genius</h3><p>Shapes, art, imagination, problem solving and expression.</p></div></article>
+<article><span aria-hidden="true">🔢</span><div><h3>Math Explorer</h3><p>Numbers, counting, patterns, addition and early reasoning.</p></div></article>
+<article><span aria-hidden="true">📖</span><div><h3>Story Builder</h3><p>Letters, phonics, vocabulary, comprehension and storytelling.</p></div></article>
+<article><span aria-hidden="true">🧪</span><div><h3>Wonder Maker</h3><p>Observation, nature, science concepts and curiosity.</p></div></article>
+<article><span aria-hidden="true">🎨</span><div><h3>Creative Genius</h3><p>Shapes, art, imagination, problem solving and expression.</p></div></article>
 </div>
 </section>
 
 <section id="parents" class="parent-section">
-<div class="parent-copy"><span class="eyebrow">FOR THE GROWN-UPS</span><h2>They see a game.<br>You see the learning.</h2><p>Kiddie Genius World turns guided curriculum into bite-sized adventures. Parents get simple progress signals without hovering over every activity.</p><div class="parent-points"><span>✓ Skill progress</span><span>✓ Mission history</span><span>✓ Printable activities</span><span>✓ New adventures weekly</span></div></div>
-<div class="parent-card"><div class="dash-title"><b>🌟 Weekly Genius Report</b><span>THIS WEEK</span></div><div class="dash-score"><strong>87%</strong><div><b>Great momentum!</b><small>4 skills practiced</small></div></div><div class="dash-bars"><label>Math <i style="width:82%"></i></label><label>Reading <i style="width:72%"></i></label><label>Science <i style="width:58%"></i></label></div></div>
+<div class="parent-copy"><span class="eyebrow">FOR THE GROWN-UPS</span><h2>They see a game.<br>You see the learning.</h2><p>The report below reflects missions completed in this browser on this device. It is a local demo, not a synced or secure parent account.</p><div class="parent-points"><span>✓ Mission completion</span><span>✓ Star Seed count</span><span>✓ Skill practice</span><span>✓ Device-local progress</span></div></div>
+<div class="parent-card"><div class="dash-title"><b>🌟 Adventure Progress</b><span>THIS DEVICE</span></div><div class="dash-score"><strong>0%</strong><div><b>Ready to begin!</b><small>0 of 4 missions completed</small></div></div><div class="dash-bars"><label>Math <i style="width:0%"></i></label><label>Reading <i style="width:0%"></i></label><label>Science <i style="width:0%"></i></label><label>Creative <i style="width:0%"></i></label></div></div>
 </section>
 
-<section class="pricing section"><div class="price-heading"><span class="eyebrow">WHEN THEY WANT MORE</span><h2>Keep the adventure going.</h2><p>The free chapter stays fun. Premium opens the larger learning world.</p></div><div class="price-card"><div><span class="plan">GENIUS PASS</span><h3>Full Adventure</h3><strong>$5.99<small>/month</small></strong><ul><li>✓ Full guided curriculum</li><li>✓ New quests every week</li><li>✓ Printable learning packs</li><li>✓ Parent progress dashboard</li></ul></div><button class="primary-btn" id="checkoutBtn">Unlock Genius Pass</button></div></section>
+<section class="pricing section"><div class="price-heading"><span class="eyebrow">WHEN THEY WANT MORE</span><h2>Keep the adventure going.</h2><p>Premium membership is coming soon. Checkout is not enabled yet.</p></div><div class="price-card"><div><span class="plan">GENIUS PASS</span><h3>Full Adventure</h3><strong>$5.99<small>/month</small></strong><ul><li>✓ Full guided curriculum</li><li>✓ New quests every week</li><li>✓ Printable learning packs</li><li>✓ Parent progress dashboard</li></ul></div><button class="primary-btn" id="checkoutBtn" type="button" aria-describedby="checkoutNote">Coming Soon</button><p id="checkoutNote" class="checkout-note">Payments are not active. No charge will be made.</p></div></section>
 </main>
 <footer><strong>Kiddie Genius World</strong><span>Play curious. Learn boldly. 🌟</span><span>© 2026 Kiddie Genius</span></footer>
 </div>
-<script src="scripts/app.js"></script>
+<script src="scripts/app.js" defer></script>
 </body></html>
