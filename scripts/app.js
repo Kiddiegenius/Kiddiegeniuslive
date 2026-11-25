@@ -85,6 +85,7 @@ function setProgress() {
   const percent = Math.round((count / missions.length) * 100);
   $("#questFill").style.width = percent + "%";
   $("#questCount").textContent = count + " / " + missions.length;
+  $("#questProgress").setAttribute("aria-valuenow", String(count));
   $("#stars").textContent = String(stars);
 
   all(".map-node").forEach((node, index) => {
@@ -117,7 +118,6 @@ function updateParentReport() {
   }
 
   const bars = all(".dash-bars label i");
-  const skillIndexes = [[0], [1], [2], [3]];
   const skillBars = [
     { label: "Math", mission: 0 },
     { label: "Reading", mission: 1 },
