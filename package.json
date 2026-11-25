@@ -1,0 +1,13 @@
+{
+  "name": "kiddie-genius-world",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A static, child-friendly guided learning adventure.",
+  "scripts": {
+    "check": "node --check scripts/app.js && node --check scripts/smoke-test.mjs",
+    "test": "npm run check && node scripts/smoke-test.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
