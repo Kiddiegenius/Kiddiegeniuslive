@@ -45,11 +45,14 @@ router.post("/:childId/progress", async (req, res, next) => {
   if (!childId.success || !parsed.success) return res.status(400).json({ error: "Invalid child or progress data." });
 
   try {
-    const owned = await pool.query("SELECT id FROM children WHERE id = $1 AND parent_id = $2", [childId.data, req.parentId]);
+    const owned = await pool.query("SELECT id, grade FROM children WHERE id = $1 AND parent_id = $2", [childId.data, req.parentId]);
     if (!owned.rowCount) return res.status(404).json({ error: "Child profile not found" });
 
-    const lesson = await pool.query("SELECT id FROM lessons WHERE id = $1", [parsed.data.lessonId]);
-    if (!lesson.rowCount) return res.status(404).json({ error: "Lesson not found" });
+    const lesson = await pool.query(
+      "SELECT id FROM lessons WHERE id = $1 AND grade = $2 AND published = TRUE",
+      [parsed.data.lessonId, owned.rows[0].grade]
+    );
+    if (!lesson.rowCount) return res.status(404).json({ error: "Published lesson not found for this grade" });
 
     const result = await pool.query(
       `INSERT INTO lesson_progress (child_id, lesson_id, status, score, time_spent_seconds, completed_at)
@@ -58,7 +61,8 @@ router.post("/:childId/progress", async (req, res, next) => {
          status = CASE WHEN lesson_progress.status = 'completed' THEN 'completed' ELSE EXCLUDED.status END,
          score = GREATEST(COALESCE(lesson_progress.score, 0), COALESCE(EXCLUDED.score, 0)),
          time_spent_seconds = GREATEST(lesson_progress.time_spent_seconds, EXCLUDED.time_spent_seconds),
-         completed_at = COALESCE(lesson_progress.completed_at, EXCLUDED.completed_at)
+         completed_at = COALESCE(lesson_progress.completed_at, EXCLUDED.completed_at),
+         updated_at = NOW()
        RETURNING lesson_id, status, score, time_spent_seconds, completed_at`,
       [childId.data, parsed.data.lessonId, parsed.data.status, parsed.data.score ?? null, parsed.data.timeSpentSeconds ?? 0]
     );
